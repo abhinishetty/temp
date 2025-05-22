@@ -73,8 +73,8 @@ hadoop fs -mkdir /abhi
 hadoop fs -mkdir /abhi/Input
 hadoop fs -put ./Input/input.txt/ /abhi/Input
 export JAVA_HOME=/usr/lib/jvm/jdk-8-openjdk-amd64
-export path=$JAVA_HOME/bin:$PATH
+export PATH=$JAVA_HOME/bin:$PATH
 javac -classpath $(hadoop classpath) -d . MaxTemperature.java
-jar -cvf MaxTemperature.jar -c . .
+jar -cvf MaxTemperature.jar -C . .
 hadoop jar MaxTemperature.jar MaxTemperature /abhi/Input /abhi/Input/output
 hadoop fs -cat /abhi/Input/output/part-r-00000
